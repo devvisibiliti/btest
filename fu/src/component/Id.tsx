@@ -7,8 +7,14 @@ import {Link} from 'react-router-dom'
 
 // }
 
- export default function Id(){
-    const [value, setValue] = useState([])
+type Item = {
+    _id: string | number;
+    title: string;
+    description: string;
+};
+
+export default function Id() {
+    const [value, setValue] = useState<Item[]>([]);
 
     useEffect(()=>{
         const re = async ()=>{
@@ -25,9 +31,15 @@ import {Link} from 'react-router-dom'
     return(
         
         <ul>
-            {value.map(item =>(
+            {value.map(item => (
                 <li key={item._id}>
-					<Link to={`/ge/${item._id}`}>{item.title}</Link>
+                    <Link to={`/ge/${item._id}`}>{item.title}</Link>
+                    <br />
+                    <Link to={`/ge/${item._id}`}>{item.description}</Link>
+                    <br />
+                    <button>
+                        <Link to={`/ge/${item._id}`}>Edit</Link>
+                    </button>
                 </li>
             ))}
  

@@ -10,5 +10,6 @@ const router = Router();
 router.post("/gp",validateCreate, crBg);
 router.get("/ge", crGe)
 router.get("/ge/:id",validateId, crGi)
+// router.put("/ge/update/:id", upi)
 
 export default router;

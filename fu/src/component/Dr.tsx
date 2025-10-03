@@ -9,7 +9,7 @@ export default function Dr(){
 
     })
 
-    function handleChange(e:React.ChangeEvent<HTMLInputElement>){
+    function handleChange(e: React.ChangeEvent<HTMLInputElement>){
         const {name, value} = e.currentTarget
         setSr((prev)=>{
             return {...prev, [name]:value}
@@ -17,7 +17,7 @@ export default function Dr(){
 
     }
 
-    async function handleSubmit(e:React.ChangeEvent<HTMLFormElement>){
+    async function handleSubmit(e: React.FormEvent<HTMLFormElement>){
         e.preventDefault()
         const res = await fetch('/api/gp',{
             method:"POST",
