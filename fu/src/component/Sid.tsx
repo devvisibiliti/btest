@@ -12,6 +12,7 @@ export default function Sid(){
 
     const [coll, setColl] = useState<CollType | null>(null)
     const [form, setForm] = useState({title:'', description:''})
+    const []
     useEffect(()=>{
         ( async()=>{
             try{
@@ -48,6 +49,13 @@ export default function Sid(){
         )
     }
     const handleSubmit = async ()=>{
+        const res = await fetch(`/api/update/${id}`,{
+            method:"PUT",
+            headers:{
+                'Content-Type':'application/json'
+            },
+            body:JSON.stringify(up)
+        })
 
     }
 

@@ -5,11 +5,12 @@ import { validateCreate } from "../middlewares/validateCreate.js";
 import crGe from "../controllers/crGeController.js";
 import crGi from "../controllers/crGiController.js";
 import validateId from "../middlewares/validateId.js";
+import upi from "../controllers/upiController.js";
 
 const router = Router();
 router.post("/gp",validateCreate, crBg);
 router.get("/ge", crGe)
 router.get("/ge/:id",validateId, crGi)
-// router.put("/ge/update/:id", upi)
+router.put("/ge/update/:id", upi)
 
 export default router;
