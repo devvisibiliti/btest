@@ -26,8 +26,6 @@ export default function Id() {
         re()
 
     },[])
-
-
     return(
         
         <ul>
