@@ -26,8 +26,8 @@ export default function Sid(){
 
     return (
  <ul>
-            <li>{coll.title}</li>
-            <li>{coll.description}</li>
+            <li>{coll?.title}</li>
+            <li>{coll?.description}</li>
         </ul>
         )
 
