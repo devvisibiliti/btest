@@ -1,4 +1,11 @@
 import { useEffect, useState } from "react"
+import {Link} from 'react-router-dom'
+
+// type Item = {id: string | number;
+//     title:string;
+//     description:string
+
+// }
 
  export default function Id(){
     const [value, setValue] = useState([])
@@ -8,8 +15,6 @@ import { useEffect, useState } from "react"
             const res = await fetch('/api/ge',)
             const data = await res.json();
             setValue(data)
-           
-
 
         };
         re()
@@ -20,14 +25,11 @@ import { useEffect, useState } from "react"
     return(
         
         <ul>
-            {value.map((dg)=>{
- <li>key={dg.id}
-                <h1>{dg.title}</h1>
-                <h2>{dg.description}</h2>
-            </li>
-            })
-           
- }
+            {value.map(item =>(
+                <li key={item._id}>
+					<Link to={`/ge/${item._id}`}>{item.title}</Link>
+                </li>
+            ))}
  
         </ul>
 
@@ -35,3 +37,18 @@ import { useEffect, useState } from "react"
 
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

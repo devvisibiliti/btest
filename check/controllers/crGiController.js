@@ -1,11 +1,12 @@
-import G from '../models/gModel.js'
 
+import G from '../models/gModel.js'
 const crGi = async(req, res)=>{
     
     const {id} = req.params
 
     try{
         const gid = await G.findById(id)
+        if (!gid) return res.status(404).json({ message: 'G not found' });
         return res.status(200).json(gid)
 
     }catch(err){
