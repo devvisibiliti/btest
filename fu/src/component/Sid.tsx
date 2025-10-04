@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react'
 import {useParams} from 'react-router-dom'
 
+const API_BASE = import.meta.env.VITE_API_BASE
+
 export default function Sid(){
 
     const {id} = useParams()
@@ -12,7 +14,8 @@ export default function Sid(){
 
     const [coll, setColl] = useState<CollType | null>(null)
     const [form, setForm] = useState({title:'', description:''})
-    const []
+    const [message, setMessage] = useState<string>('')
+    
     useEffect(()=>{
         ( async()=>{
             try{
@@ -48,19 +51,43 @@ export default function Sid(){
             
         )
     }
-    const handleSubmit = async ()=>{
-        const res = await fetch(`/api/update/${id}`,{
+    const handleSubmit = async (e:React.FormEvent<HTMLFormElement>)=>{
+        e.preventDefault()
+        const res = await fetch(`${API_BASE}/api/ge/update/${id}`,{
             method:"PUT",
             headers:{
                 'Content-Type':'application/json'
             },
-            body:JSON.stringify(up)
+            body:JSON.stringify(form)
         })
+        if(!res){
+            setMessage('Response not available')
+        }else{
+            setMessage("Updated")
+        }
+
+    }
+
+    const handleDelete = async(e?: React.MouseEvent<HTMLButtonElement>)=>{
+        e?.preventDefault()
+        const res = await fetch(`/api/ge/del/${id}`,{
+            method:'DELETE',
+           
+        })
+        const text = await res.text().catch(()=>'')
+
+        if(res.ok){
+            setMessage(text)
+            setForm({title:'', description:''})
+        }
 
     }
 
     return (
         <>
+        {message && (
+            <p>{message}</p>
+        )}
         <ul>
             {coll &&(
                 <>
@@ -82,6 +109,11 @@ export default function Sid(){
                 <label>Description</label>
                 <input name="description" value={form?.description} onChange={handleChange}></input>
             </div>
+            <button type='submit'>Update
+
+            </button>
+            <button onClick={handleDelete}>Del</button>
+            
         </form>
         
         
@@ -90,3 +122,4 @@ export default function Sid(){
         )
 
 }
+

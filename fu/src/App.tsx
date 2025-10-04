@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Id from "./component/Id";
 import Sid from "./component/Sid";
+import Dr from "./component/Dr";
 // import Uid from "./component/Uid";
 // import Dr from "./component/Dr"; // not used
 
@@ -10,7 +11,7 @@ export default function App() {
       <Routes>
         <Route path="/ge" element={<Id />} />
         <Route path="/ge/:id" element={<Sid />} />
-        {/* <Route path="/ge/update" element={<Uid />} /> */}
+        <Route path="/ge/post" element={<Dr />} />
       </Routes>
     </BrowserRouter>
   );
