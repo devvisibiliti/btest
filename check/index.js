@@ -6,6 +6,7 @@ import mongoose from "mongoose";
 import cors from "cors";
 
 import router from "./routes/gRoutes.js";
+import adRouter from "./routes/adRoutes.js";
 
 
 const app = express()
@@ -33,5 +34,6 @@ mongoose.connect(process.env.MONGODB_URI).then(()=>{
 //     next()
 // })
 app.use("/api", router)
+app.use('/ad', adRouter)
 
 
