@@ -1,4 +1,4 @@
-import User from "../models/userModels"
+import User from "../models/userModels.js"
 
 const Signup =  async(req, res)=>{
     
@@ -15,8 +15,11 @@ const Signup =  async(req, res)=>{
 
 
     }catch(err){
+        return res.status(400).json({message:"Error"})
 
     }
 
 
 }
+
+export default Signup

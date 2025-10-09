@@ -11,10 +11,13 @@ const userSchema = new mongoose.Schema(
         },
         password:{
             type:String,required:true
-        },
+        }
         
-            timestamps:true
+           
         
+    },
+    {
+         timestamps:true
     }
 )
 
@@ -23,4 +26,4 @@ userSchema.pre("save", async function(){
     this.password = bcrypt.hash(this.password, 12)
 })
 
-export default mongoose.model(User, "userSchema")
+export default mongoose.model("User", userSchema)

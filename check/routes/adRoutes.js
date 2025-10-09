@@ -1,8 +1,9 @@
 import { Router } from "express";
+import Signup from "../controllers/SignupController.js"
 
 const adRouter = Router()
 
-adRouter.post("/signin", Signin)
+adRouter.post("/signup", Signup)
 
 
 export default adRouter
