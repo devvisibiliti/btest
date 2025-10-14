@@ -34,6 +34,6 @@ mongoose.connect(process.env.MONGODB_URI).then(()=>{
 //     next()
 // })
 app.use("/api", router)
-app.use('/ad', adRouter)
+app.use("/ad", adRouter)
 
 
