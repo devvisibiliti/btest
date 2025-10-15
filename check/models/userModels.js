@@ -3,14 +3,14 @@ import bcrypt from "bcrypt"
 
 const userSchema = new mongoose.Schema(
     {
-        name:{
+        username:{
             type:String, required:true,trim:true, minlength:2, maxlength:15
         },
         email:{
-            type:String, required:true
+            type:String, required:true, unique:true
         },
         password:{
-            type:String,required:true
+            type:String,required:true, select:false
         }
         
            

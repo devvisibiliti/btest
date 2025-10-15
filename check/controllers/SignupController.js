@@ -4,11 +4,11 @@ const Signup =  async(req, res)=>{
     
 
     try{
-        const {name, email, password} = req.body
-        if(!name||!email ||!password){
+        const {username, email, password} = req.body
+        if(!username||!email ||!password){
             return res.status(400).json({message:"name or email or password is not available"})
         }
-        const user = await User.create({name,email,password})
+        const user = await User.create({username,email,password})
         return res.status(200).json({message:"userCreated"})
 
     }catch(err){
