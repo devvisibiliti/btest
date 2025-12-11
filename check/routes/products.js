@@ -1,6 +1,6 @@
 import express from "express";
 import slugify from "slugify";
-import Product from "../models/product.js";
+import Product from "../models/products.js";
 
 const router = express.Router();
 
